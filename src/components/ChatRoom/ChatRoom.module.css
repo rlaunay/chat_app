@@ -1,0 +1,76 @@
+.messages {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    display: flex;
+    height: 75px;
+}
+
+.input {
+    border: none;
+    background-color: #0d6575;
+    padding: 20px;
+    font-size: 50px;
+    flex: 1 1 auto;
+
+    color: #ecf0f1;
+    transition: .5s;
+}
+
+
+.input:focus {
+    outline: none;
+
+    background-color: #074c58;
+}
+
+.submit {
+    outline: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100px;
+    font-size: 50px;
+    background-color: #333333;
+    color: #ecf0f1;
+    flex-shrink: 0;
+
+    border: none;
+}
+
+
+/* Ripple effect */
+.ripple {
+    background-position: center;
+    transition: background 0.5s;
+}
+.ripple:hover {
+background: #161616 radial-gradient(circle, transparent 1%, #161616 1%) center/15000%;
+}
+.ripple:active {
+background-color: #797676;
+background-size: 100%;
+transition: background 0s;
+}
+
+@media screen and (max-width: 1000px) {
+    .form {
+        height: 50px;
+    }
+    .input {
+        padding: 10px;
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .form {
+        height: 50px;
+    }
+    .input {
+        padding: 5px;
+        font-size: 16px;
+    }
+}

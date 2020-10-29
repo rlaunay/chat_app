@@ -1,0 +1,35 @@
+.message {
+    display: flex;
+    align-items: center;
+
+    margin: 20px 0;
+}
+
+.sent {
+    flex-direction: row-reverse;
+    align-self: flex-end;
+}
+
+.received {
+    align-self: flex-start;
+}
+
+.img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    min-width: 75px;
+    min-height: 50px;
+    overflow-wrap: anywhere;
+    border-radius: 25px;
+    padding: 10px;
+    background-color: #0d6575;
+    font-size: 20px;
+    color: #ecf0f1;
+    margin: 0 20px;
+}

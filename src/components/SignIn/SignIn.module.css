@@ -1,0 +1,26 @@
+.btn {
+    position: relative;
+    outline: none;
+    padding: 20px 40px;
+    border: none;
+    background-color:#333333;
+    color: #ecf0f1;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* Ripple effect */
+.ripple {
+    background-position: center;
+    transition: background 0.8s;
+}
+.ripple:hover {
+    background: #222222 radial-gradient(circle, transparent 1%, #222222 1%) center/15000%;
+}
+.ripple:active {
+    background-color: #333333;
+    background-size: 100%;
+    transition: background 0s;
+}

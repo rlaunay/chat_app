@@ -1,11 +1,16 @@
 import ChatMessage from './ChatMessage/ChatMessage';
 import Styles from './ChatRoom.module.css';
 
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+
 function ChatRoom(props) {
+
+    const [messages] = useCollectionData(props.query, {idField: 'id'});
+
     return (
         <>
             <div className={Styles.messages}>
-                {props.messages && props.messages.map(msg => <ChatMessage key={msg.id} message={msg} auth={props.auth} />)}
+                {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} auth={props.auth} />)}
 
                 <div ref={props.dummy}></div>
             </div>

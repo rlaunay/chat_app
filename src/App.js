@@ -9,7 +9,6 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { useState, useRef } from 'react';
 
 firebase.initializeApp({
@@ -40,16 +39,12 @@ function App() {
   const messagesRef = firestore.collection('messages');
   const query = messagesRef.orderBy('createdAt').limit(25);
 
-  const [messages] = useCollectionData(query, {idField: 'id'});
-
   const [formValue, setFormValue] = useState('');
 
   const sendMessage = async(e) => {
     e.preventDefault();
 
     const { uid, photoURL } = auth.currentUser;
-
-    console.log(formValue);
 
     await messagesRef.add({
       text: formValue,
@@ -59,7 +54,6 @@ function App() {
     });
 
     setFormValue('');
-    console.log(messages);
 
     dummy.current.scrollIntoView({ behavior: 'smooth' });
   }
@@ -77,7 +71,7 @@ function App() {
       </header>
 
       <section className={classes.join(' ')}>
-        {user ? <ChatRoom dummy={dummy} messages={messages} auth={auth} formValue={formValue} onChangeFormValue={setFormValue} onSubmit={sendMessage} /> : <SignIn signIn={signInWithGoogle.bind(this)} />}
+        {user ? <ChatRoom dummy={dummy} query={query} auth={auth} formValue={formValue} onChangeFormValue={setFormValue} onSubmit={sendMessage} /> : <SignIn signIn={signInWithGoogle.bind(this)} />}
       </section>
     </div>
   );
